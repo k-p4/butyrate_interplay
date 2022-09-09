@@ -1,0 +1,8 @@
+VER	2v16
+STARTTIME	Mon Aug 22 10:26:14 CDT 2022
+IN1	Karl
+IN2	karl.poncha@bcm.edu
+IN3	BCM
+IN4	H32_butyrate_treatment_Interp2v16
+IN5	template_seq_H31_only.txt
+IN6	false
