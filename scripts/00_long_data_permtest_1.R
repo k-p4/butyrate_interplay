@@ -37,3 +37,43 @@ df5 <- df4 %>% select(ptm_combination, bio_rep, treatment, interplay_score, -c(s
 
 View(df5)
 
+
+# hypothesis testing
+
+# library(dplyr)
+# library(broom)
+# 
+# df <- data %>% 
+#         group_by(Product_type) %>% 
+#         do(tidy(t.test(.$Price_Online, 
+#                        .$Price_Offline, 
+#                        mu = 0, 
+#                        alt = "two.sided", 
+#                        paired = TRUE, 
+#                        conf.level = 0.99))))
+# 
+# library(broom)
+# library(dplyr)
+# library(purrr)
+# library(tidyr)
+# 
+# t_test <- function(df, mu = 0, alt = "two.sided", paired = T, conf.level = .99) {
+#         tidy(t.test(df$Price_Offline, 
+#                     df$Price_Online,
+#                     mu = mu, 
+#                     alt = alt,
+#                     paired = paired,
+#                     conf.level = conf.level))
+# }
+# 
+# d <- df %>%
+#         group_by(Product_type) %>%
+#         nest() %>%
+#         mutate(ttest = map(data, t_test)) %>%
+#         unnest(ttest, .drop = T)
+# 
+# 
+# 
+# result <- by(data, data$Product_type, function(x) 
+#         t.test(x$Price_Online, x$Price_Offline, mu=0, alt="two.sided", 
+#                paired=TRUE, conf.level=0.99)[c(1:9)])
