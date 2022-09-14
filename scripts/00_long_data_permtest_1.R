@@ -63,3 +63,5 @@ View(df8)
 
 # # STILL NOT WORKING
 # write_csv(df8, "/res_out")
+
+# need to add other tests asap
