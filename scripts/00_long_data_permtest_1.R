@@ -14,7 +14,7 @@ df1 <- butyrate_treatment_interplay_9reps
 
 
 # check if imported correctly
-View(df1)
+df1
 
 
 # pivot longer takes col names as a vector to pivot on
@@ -42,13 +42,9 @@ df5 <- df4 %>%
 df6 <- df5 %>% 
         select(interplay_score, ptm_combination, treatment)
 
-View(df6)
-
 # drop rows containing K4me3K27un in this data set as err: data are ess constant
 df7 <- df6 %>%
         filter(!grepl('K4me3K27un', ptm_combination))
-
-View(df7)
 
 df8 <-df7 %>% 
         group_by(ptm_combination, treatment) %>% 
@@ -65,3 +61,5 @@ df8 <-df7 %>%
 
 View(df8)
 
+# # STILL NOT WORKING
+# write_csv(df8, "/res_out")
