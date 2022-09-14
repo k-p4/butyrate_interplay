@@ -1,0 +1,1 @@
+this is a test for res_out writing on other PC
