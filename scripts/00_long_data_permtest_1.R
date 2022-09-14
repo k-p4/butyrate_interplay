@@ -46,7 +46,35 @@ df6 <- df5 %>%
 df7 <- df6 %>%
         filter(!grepl('K4me3K27un', ptm_combination))
 
+# KS test for distributions and normality
 df8 <-df7 %>% 
+        group_by(ptm_combination, treatment) %>% 
+        nest() %>% 
+        pivot_wider(names_from = treatment, values_from = data) %>% 
+        # depreciated: spread(key = treatment, value = data) %>% 
+        mutate(
+                ks_test = map2(ctrl, but, ~{ks.test(.x$interplay_score, .y$interplay_score) %>% tidy()}),
+                ctrl = map(ctrl, nrow),
+                but = map(but, nrow)
+        ) %>% 
+        unnest(cols = c(ctrl, but, ks_test))
+
+# Wilcox test
+df9 <-df7 %>% 
+        group_by(ptm_combination, treatment) %>% 
+        nest() %>% 
+        pivot_wider(names_from = treatment, values_from = data) %>% 
+        # depreciated: spread(key = treatment, value = data) %>% 
+        mutate(
+                wilcox_test = map2(ctrl, but, ~{wilcox.test(.x$interplay_score, .y$interplay_score) %>% tidy()}),
+                ctrl = map(ctrl, nrow),
+                but = map(but, nrow)
+        ) %>% 
+        unnest(cols = c(ctrl, but, wilcox_test))
+
+# Welch t.test
+df10 <-df7 %>% 
+
         group_by(ptm_combination, treatment) %>% 
         nest() %>% 
         pivot_wider(names_from = treatment, values_from = data) %>% 
@@ -59,9 +87,4 @@ df8 <-df7 %>%
         unnest(cols = c(ctrl, but, t_test))
 
 
-View(df8)
-
-# # STILL NOT WORKING
-# write_csv(df8, "/res_out")
-
-# need to add other tests asap
+# permutation test and writing permissions to be solved
