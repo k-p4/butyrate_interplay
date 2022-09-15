@@ -10,15 +10,15 @@ butyrate_treatment_interplay_9reps <- read_excel("data/butyrate_treatment_interp
                                                  sheet = "Sheet4")
 
 # rename dataframe
-df1 <- butyrate_treatment_interplay_9reps
+df_int_1 <- butyrate_treatment_interplay_9reps
 
 
 # check if imported correctly
-df1
+df_int_1
 
 
 # pivot longer takes col names as a vector to pivot on
-df2 <- df1 %>% 
+df_int_2 <- df_int_1 %>% 
         pivot_longer(cols = c('int_ctrl_1', 'int_ctrl_2', 'int_ctrl_3', 'int_ctrl_4', 'int_ctrl_5', 'int_ctrl_6', 'int_ctrl_7', 'int_ctrl_8', 'int_ctrl_9', 'int_but_1', 'int_but_2', 'int_but_3', 'int_but_4', 'int_but_5', 'int_but_6', 'int_but_7', 'int_but_8', 'int_but_9'),
                             names_to = 'sample_name',
                             values_to = 'interplay_score')
@@ -26,28 +26,28 @@ df2 <- df1 %>%
 
 # use str_extract to create sample_name col. 
 # regex parses based on underscore - hardcoded to expect int_condition_biorep format
-df3 <- df2 %>% 
+df_int_3 <- df_int_2 %>% 
         mutate(bio_rep = str_extract(sample_name, "([^_]+)_[^_]+$"))
 
 
 # use str_extract to create bio_rep col. regex drops based to underscore delim - hardcoded as above
-df4 <- df3 %>% 
+df_int_4 <- df_int_3 %>% 
         mutate(treatment = str_extract(bio_rep, "^[^_]+"))
 
 
-df5 <- df4 %>% 
+df_int_5 <- df_int_4 %>% 
         select(ptm_combination, bio_rep, treatment, interplay_score, -c(sample_name))
 
-# clean up df for independence tests
-df6 <- df5 %>% 
+# clean up df_int_ for independence tests
+df_int_6 <- df_int_5 %>% 
         select(interplay_score, ptm_combination, treatment)
 
 # drop rows containing K4me3K27un in this data set as err: data are ess constant
-df7 <- df6 %>%
+df_int_7 <- df_int_6 %>%
         filter(!grepl('K4me3K27un', ptm_combination))
 
 # KS test for distributions and normality
-df8 <- df7 %>%
+df_int_8 <- df_int_7 %>%
         group_by(ptm_combination, treatment) %>% 
         nest() %>% 
         pivot_wider(names_from = treatment, values_from = data) %>% 
@@ -60,7 +60,7 @@ df8 <- df7 %>%
         unnest(cols = c(ctrl, but, ks_test))
 
 # Wilcox test
-df9 <- df7 %>%
+df_int_9 <- df_int_7 %>%
         group_by(ptm_combination, treatment) %>% 
         nest() %>% 
         pivot_wider(names_from = treatment, values_from = data) %>% 
@@ -73,7 +73,7 @@ df9 <- df7 %>%
         unnest(cols = c(ctrl, but, wilcox_test))
 
 # Welch t.test
-df10 <- df7 %>%
+df_int_10 <- df_int_7 %>%
         group_by(ptm_combination, treatment) %>% 
         nest() %>% 
         pivot_wider(names_from = treatment, values_from = data) %>% 
@@ -90,7 +90,7 @@ df10 <- df7 %>%
 
 
 # # coin permutation test of independece
-# df11 <- df7 %>%
+# df_int_11 <- df_int_7 %>%
 #         group_by(ptm_combination, treatment) %>% 
 #         nest() %>% 
 #         pivot_wider(names_from = treatment, values_from = data) %>% 
