@@ -1,3 +1,6 @@
+# set seed
+set.seed(24601)
+
 # load required packages
 if (!require(readxl)) {install.packages("readxl")}
 if (!require(tidyverse)) {install.packages("tidyverse")}

@@ -1,5 +1,5 @@
 # Generating data
-set.seed(2021)
+set.seed(24601)
 d <- as.data.frame(cbind(rnorm(1:20, 500, 50), c(rep(0, 10), rep(1, 10))))
 View(d)
 treatment <- d$V2
