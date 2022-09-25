@@ -94,3 +94,6 @@ df_int_11 <- df_int_7 %>%
         group_by(ptm_combination) %>% 
         nest() 
 View(df_int_11)
+
+
+

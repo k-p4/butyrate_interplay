@@ -90,18 +90,10 @@ df_ogint_10 <- df_ogint_7 %>%
         unnest(cols = c(ctrl, but, t_test))
 
 
-# permutation test and writing permissions to be solved
 
 
-# # coin permutation test of independece
-# df_ogint_11 <- df_ogint_7 %>%
-#         group_by(ptm_combination, treatment) %>% 
-#         nest() %>% 
-#         pivot_wider(names_from = treatment, values_from = data) %>% 
-#         # depreciated: spread(key = treatment, value = data) %>% 
-#         mutate(
-#                 independence_test = map2(ctrl, but, ~{independence_test(.x$interplay_score ~ .y$interplay_score) %>% tidy()}),
-#                 ctrl = map(ctrl, nrow),
-#                 but = map(but, nrow)
-#         ) %>% 
-#         unnest(cols = c(ctrl, but, independence_test))
+
+
+
+
+
