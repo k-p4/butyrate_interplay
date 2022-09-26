@@ -1,2 +1,2 @@
-# butyrate_interplay
+# Butyrate Interplay
 Analysis of PTMInterplay scores from Sodium Butyrate treated HEK cells
