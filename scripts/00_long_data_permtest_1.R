@@ -4,6 +4,7 @@
 
 set.seed(24601)
 
+
 # load packages -----------------------------------------------------------
 
 
@@ -12,21 +13,25 @@ if (!require(tidyverse)) {install.packages("tidyverse")}
 if (!require(broom)) {install.packages("broom")}
 if (!require(coin)) {install.packages("coin")}
 
+
 # import files ------------------------------------------------------------
 
 
 butyrate_treatment_interplay_9reps <- read_excel("data/butyrate_treatment_interplay_9reps.xlsx", 
                                                  sheet = "Sheet4")
 
+
 # rename dataframe --------------------------------------------------------
 
 
 df_int_1 <- butyrate_treatment_interplay_9reps
 
+
 # check import ------------------------------------------------------------
 
 
 df_int_1
+
 
 # pivot longer takes col names as a vector to pivot on --------------------
 
@@ -35,7 +40,6 @@ df_int_2 <- df_int_1 %>%
         pivot_longer(cols = c('int_ctrl_1', 'int_ctrl_2', 'int_ctrl_3', 'int_ctrl_4', 'int_ctrl_5', 'int_ctrl_6', 'int_ctrl_7', 'int_ctrl_8', 'int_ctrl_9', 'int_but_1', 'int_but_2', 'int_but_3', 'int_but_4', 'int_but_5', 'int_but_6', 'int_but_7', 'int_but_8', 'int_but_9'),
                             names_to = 'sample_name',
                             values_to = 'interplay_score')
-
 
 
 # cleaning data and adding treatment conditions ---------------------------
@@ -363,8 +367,6 @@ df_K27unK36me1 <- df_int_7 %>% filter(grepl('K27unK36me1', ptm_combination))
 df_K27unK36me2 <- df_int_7 %>% filter(grepl('K27unK36me2', ptm_combination))
 df_K27unK36me3 <- df_int_7 %>% filter(grepl('K27unK36me3', ptm_combination))
 df_K27unK36un <- df_int_7 %>% filter(grepl('K27unK36un', ptm_combination))
-
-
 
 
 # permutation test on filtered data ---------------------------------------
