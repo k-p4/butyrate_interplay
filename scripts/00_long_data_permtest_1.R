@@ -610,7 +610,3 @@ independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36me1,
 independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36me2, distribution = approximate(1000000))
 independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36me3, distribution = approximate(1000000))
 independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36un, distribution = approximate(1000000))
-
-
-
-
