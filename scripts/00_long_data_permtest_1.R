@@ -114,8 +114,8 @@ df_int_10 <- df_int_7 %>%
                 but = map(but, nrow)
         ) %>% 
         unnest(cols = c(ctrl, but, t_test))
-View(df_int_10)
 
+View(df_int_10)
 # # No pivot then map permutation test 
 # df_int_11 <- df_int_7 %>%
 #         group_by(ptm_combination) %>% 
@@ -619,7 +619,7 @@ independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36un, 
 
 # Pretty sure nested permutation test is working --------------------------
 
-
+system.time(
 # No pivot then map permutation test 
 df_int_11 <- df_int_7 %>%
         group_by(ptm_combination) %>%
@@ -627,7 +627,7 @@ df_int_11 <- df_int_7 %>%
         mutate(
                 perm_test = map(.x = data, .f = ~independence_test(.x$interplay_score ~ as.factor(.x$treatment), data = data, distribution = approximate(1000000)))
                 )
-
+)
 
 
 
@@ -636,7 +636,3 @@ b <- independence_test(c(23,56,18) ~ c(1,3,2),teststat = "quad")
 b
 str(b)
 b@distribution@pvalue(b@statistic@teststatistic)
-
-
-
-
