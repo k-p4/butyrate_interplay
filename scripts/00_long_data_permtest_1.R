@@ -114,7 +114,7 @@ df_int_10 <- df_int_7 %>%
                 but = map(but, nrow)
         ) %>% 
         unnest(cols = c(ctrl, but, t_test))
-
+View(df_int_10)
 
 # # No pivot then map permutation test 
 # df_int_11 <- df_int_7 %>%
@@ -612,3 +612,31 @@ independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36me1,
 independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36me2, distribution = approximate(1000000))
 independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36me3, distribution = approximate(1000000))
 independence_test(interplay_score ~ as.factor(treatment), data = df_K27unK36un, distribution = approximate(1000000))
+
+
+
+
+
+# Pretty sure nested permutation test is working --------------------------
+
+
+# No pivot then map permutation test 
+df_int_11 <- df_int_7 %>%
+        group_by(ptm_combination) %>%
+        nest() %>% 
+        mutate(
+                perm_test = map(.x = data, .f = ~independence_test(.x$interplay_score ~ as.factor(.x$treatment), data = data, distribution = approximate(1000000)))
+                )
+
+
+
+
+# https://stackoverflow.com/questions/32639460/how-to-extract-value-from-one-s4-class
+b <- independence_test(c(23,56,18) ~ c(1,3,2),teststat = "quad")
+b
+str(b)
+b@distribution@pvalue(b@statistic@teststatistic)
+
+
+
+
