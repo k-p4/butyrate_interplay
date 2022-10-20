@@ -84,7 +84,8 @@ colnames(H31_ctrl) <- groupnames
 corrplot(H31_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
-         type = "upper"
+         type = "upper",
+         na.label = "×"
          )
 
 
@@ -94,7 +95,8 @@ colnames(H31_but) <- groupnames
 corrplot(H31_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
-         type = "upper"
+         type = "upper",
+         na.label = "×"
          )
 
 
@@ -107,7 +109,8 @@ colnames(H32_ctrl) <- groupnames
 corrplot(H32_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
-         type = "upper"
+         type = "upper",
+         na.label = "×"
          )
 
 
@@ -117,7 +120,8 @@ colnames(H32_but) <- groupnames
 corrplot(H32_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
-         type = "upper"
+         type = "upper",
+         na.label = "×"
          )
 
 
@@ -130,7 +134,8 @@ colnames(H33_ctrl) <- groupnames
 corrplot(H33_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
-         type = "upper"
+         type = "upper",
+         na.label = "×"
          )
 
 
@@ -140,6 +145,7 @@ colnames(H33_but) <- groupnames
 corrplot(H33_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
-         type = "upper"
+         type = "upper",
+         na.label = "×"
          )
 
