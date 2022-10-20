@@ -157,7 +157,7 @@ rownames(H33_but) <- groupnames
 colnames(H33_but) <- groupnames
 
 
-pdf(file = "figures/H33_but_interplay")
+pdf(file = "figures/H33_but_interplay.pdf")
 corrplot(H33_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
