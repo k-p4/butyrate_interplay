@@ -81,24 +81,30 @@ groupnames <- c("K4me1",
 rownames(H31_ctrl) <- groupnames
 colnames(H31_ctrl) <- groupnames
 
+
+pdf(file = "figures/H31_ctrl_interplay.pdf")
 corrplot(H31_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
          na.label = "×"
          )
+dev.off()
+
 
 
 rownames(H31_but) <- groupnames
 colnames(H31_but) <- groupnames
 
+
+pdf(file = "figures/H31_but_interplay.pdf")
 corrplot(H31_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
          na.label = "×"
          )
-
+dev.off()
 
 
 # H32 interplay plots -----------------------------------------------------
@@ -106,24 +112,29 @@ corrplot(H31_but,
 rownames(H32_ctrl) <- groupnames
 colnames(H32_ctrl) <- groupnames
 
+
+pdf(file = "figures/H32_ctrl_interplay.pdf")
 corrplot(H32_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
          na.label = "×"
          )
+dev.off()
 
 
 rownames(H32_but) <- groupnames
 colnames(H32_but) <- groupnames
 
+
+pdf(file = "figures/H32_but_interplay.pdf")
 corrplot(H32_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
          na.label = "×"
          )
-
+dev.off()
 
 
 # H33 interplay plots -----------------------------------------------------
@@ -131,21 +142,27 @@ corrplot(H32_but,
 rownames(H33_ctrl) <- groupnames
 colnames(H33_ctrl) <- groupnames
 
+
+pdf(file = "figures/H33_ctrl_interplay.pdf")
 corrplot(H33_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
          na.label = "×"
          )
+dev.off()
 
 
 rownames(H33_but) <- groupnames
 colnames(H33_but) <- groupnames
 
+
+pdf(file = "figures/H33_but_interplay")
 corrplot(H33_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
          na.label = "×"
          )
+dev.off()
 
