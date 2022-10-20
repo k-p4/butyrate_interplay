@@ -87,6 +87,7 @@ corrplot(H31_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
+         diag = FALSE,
          na.label = "×"
          )
 dev.off()
@@ -102,6 +103,7 @@ corrplot(H31_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
+         diag = FALSE,
          na.label = "×"
          )
 dev.off()
@@ -118,6 +120,7 @@ corrplot(H32_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
+         diag = FALSE,
          na.label = "×"
          )
 dev.off()
@@ -132,6 +135,7 @@ corrplot(H32_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
+         diag = FALSE,
          na.label = "×"
          )
 dev.off()
@@ -148,6 +152,7 @@ corrplot(H33_ctrl,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
+         diag = FALSE,
          na.label = "×"
          )
 dev.off()
@@ -162,6 +167,7 @@ corrplot(H33_but,
          method = 'color',
          # col = brewer.pal(n = 11, name = "RdBu"),
          type = "upper",
+         diag = FALSE,
          na.label = "×"
          )
 dev.off()
