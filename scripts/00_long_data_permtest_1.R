@@ -83,6 +83,8 @@ df_int_8 <- df_int_7 %>%
         ) %>%
         unnest(cols = c(ctrl, but, ks_test))
 
+# write_csv(df_int_9, "/home/karl/r_projects/NI_wilcox_rank.csv")
+
 
 # wilcox ranksum test -----------------------------------------------------
 
@@ -98,6 +100,7 @@ df_int_9 <- df_int_7 %>%
                 but = map(but, nrow)
         ) %>% 
         unnest(cols = c(ctrl, but, wilcox_test))
+# write_csv(df_int_9, "/home/karl/r_projects/NI_wilcox_rank.csv")
 
 
 # welch t test ------------------------------------------------------------
@@ -121,7 +124,7 @@ View(df_int_10)
 #         group_by(ptm_combination) %>% 
 #         nest() 
 # View(df_int_11)
-
+# write_csv(df_int_10, "/home/karl/r_projects/NI_ttest.csv")
 
 # subset dataframes by PTM ------------------------------------------------
 
