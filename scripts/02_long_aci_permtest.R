@@ -82,7 +82,7 @@ df_aci_8 <- df_aci_7 %>%
                 but = map(but, nrow)
         ) %>%
         unnest(cols = c(ctrl, but, ks_test))
-write_csv(df_aci_8, "/home/karl/r_projects/ACI_KS_test.csv")
+# write_csv(df_aci_8, "/home/karl/r_projects/ACI_KS_test.csv")
 
 
 # wilcox ranksum test -----------------------------------------------------
@@ -99,7 +99,7 @@ df_aci_9 <- df_aci_7 %>%
                 but = map(but, nrow)
         ) %>% 
         unnest(cols = c(ctrl, but, wilcox_test))
-write_csv(df_aci_9, "/home/karl/r_projects/ACI_wilcox_rank.csv")
+# write_csv(df_aci_9, "/home/karl/r_projects/ACI_wilcox_rank.csv")
 
 
 # welch t test ------------------------------------------------------------
@@ -116,7 +116,7 @@ df_aci_10 <- df_aci_7 %>%
                 but = map(but, nrow)
         ) %>% 
         unnest(cols = c(ctrl, but, t_test))
-write_csv(df_aci_10, "/home/karl/r_projects/ACI_ttest.csv")
+# write_csv(df_aci_10, "/home/karl/r_projects/ACI_ttest.csv")
 
 # # No pivot then map permutation test 
 # df_aci_11 <- df_aci_7 %>%

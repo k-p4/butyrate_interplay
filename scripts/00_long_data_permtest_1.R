@@ -639,3 +639,17 @@ b <- independence_test(c(23,56,18) ~ c(1,3,2),teststat = "quad")
 b
 str(b)
 b@distribution@pvalue(b@statistic@teststatistic)
+
+
+
+# independence test and p val extraction ----------------------------------
+
+# https://towardsdatascience.com/permutation-test-in-r-77d551a9f891
+# two tailed
+# independence_test(trreatment ~ outcome)
+# 
+# https://stats.stackexchange.com/questions/6127/which-permutation-test-implementation-in-r-to-use-instead-of-t-tests-paired-and/6134#6134
+# id <- factor(rep(1:length(x1), 2))    # factor for participant
+# pvalue(oneway_test(DV ~ IV | id, alternative="greater",
+#                    distribution=approximate(B=9999)))
+# [1] 0.00810081

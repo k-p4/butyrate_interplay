@@ -82,7 +82,7 @@ df_ogint_8 <- df_ogint_7 %>%
                 but = map(but, nrow)
         ) %>%
         unnest(cols = c(ctrl, but, ks_test))
-write_csv(df_ogint_8, "/home/karl/r_projects/Interplay_KS_test.csv")
+# write_csv(df_ogint_8, "/home/karl/r_projects/Interplay_KS_test.csv")
 
 
 # wilcox ranksum test -----------------------------------------------------
@@ -99,7 +99,7 @@ df_ogint_9 <- df_ogint_7 %>%
                 but = map(but, nrow)
         ) %>% 
         unnest(cols = c(ctrl, but, wilcox_test))
-write_csv(df_ogint_9, "/home/karl/r_projects/Interplay_wilcox_rank.csv")
+# write_csv(df_ogint_9, "/home/karl/r_projects/Interplay_wilcox_rank.csv")
 
 # welch t test ------------------------------------------------------------
 
@@ -115,7 +115,7 @@ df_ogint_10 <- df_ogint_7 %>%
                 but = map(but, nrow)
         ) %>% 
         unnest(cols = c(ctrl, but, t_test))
-write_csv(df_ogint_10, "/home/karl/r_projects/Interplay_ttest.csv")
+# write_csv(df_ogint_10, "/home/karl/r_projects/Interplay_ttest.csv")
 
 # # No pivot then map permutation test 
 # df_ogint_11 <- df_ogint_7 %>%
