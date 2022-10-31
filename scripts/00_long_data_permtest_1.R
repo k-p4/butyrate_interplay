@@ -2,7 +2,7 @@
 # set seed ----------------------------------------------------------------
 
 
-set.seed(24601)
+set.seed(655321)
 
 
 # load packages -----------------------------------------------------------
@@ -628,10 +628,10 @@ df_int_11 <- df_int_7 %>%
         group_by(ptm_combination) %>%
         nest() %>% 
         mutate(
-                perm_test = map(.x = data, .f = ~independence_test(.x$interplay_score ~ as.factor(.x$treatment), data = data, distribution = approximate(1000000)))
+                perm_test = map(.x = data, .f = ~pvalue(independence_test(.x$interplay_score ~ as.factor(.x$treatment), data = data)))
                 )
 )
-
+View(df_int_11)
 
 
 # https://stackoverflow.com/questions/32639460/how-to-extract-value-from-one-s4-class
